@@ -1,0 +1,43 @@
+# Build directories
+build/
+bin/
+
+# IDE specific
+.github/
+.vscode/
+.vs/
+
+# Compiled files
+*.o
+*.obj
+*.exe
+*.dll
+*.lib
+
+# Temporary files
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# OS-specific files
+Thumbs.db
+desktop.ini
+.DS_Store
+.AppleDouble
+
+# Build artifacts
+*.pdb
+*.ilk
+*.idb
+*.tlog
+*.lastbuildstate
+
+# Qt-specific files
+*.pro.user
+*.qmake.stash
+
+# Personal configuration
+*.env
+*.config
