@@ -8,7 +8,7 @@ SRC_DIRS=("src"
 
 BUILD_DIR="build/output"
 BIN_DIR="bin"
-EXE_NAME="AlpenliCloud.exe"
+EXE_NAME="xreeptor.exe"
 EXE_PATH="$BIN_DIR/$EXE_NAME"
 RESOURCE_RC="assets/resource.rc"
 RESOURCE_RES="assets/resource.res"
@@ -122,12 +122,12 @@ build() {
     compile_sources
     link_if_needed
 
-    echo -e "\n🚀 Running ${BLUE}AlpenliCloud...${RESET}"
+    echo -e "\n🚀 Running ${BLUE}xreeptor...${RESET}"
     sleep 1
-    "./$EXE_PATH" || echo -e "${RED}❌ AlpenliCloud failed to start! Check for errors. ${RESET}"
+    "./$EXE_PATH" || echo -e "${RED}❌ xreeptor failed to start! Check for errors. ${RESET}"
     if [ $? -eq 0 ]; then
         # clear
-        echo -e "\n\nMantap! Trims sudah pakai ${BLUE}AlpenliCloud${RESET}\n\n"
+        echo -e "\n\nMantap! Trims sudah pakai ${BLUE}xreeptor${RESET}\n\n"
     fi
 }
 
@@ -163,7 +163,7 @@ parse_args() {
 }
 
 show_help() {
-    echo -e "\n${BOLD}${BLUE}AlpenliCloud${RESET}${BOLD} Build Script${RESET}"
+    echo -e "\n${BOLD}${BLUE}xreeptor${RESET}${BOLD} Build Script${RESET}"
     echo -e "============================================================\n"
     
     echo -e "Usage: $0 [--debug] [clean|build|rebuild] [--help]\n"

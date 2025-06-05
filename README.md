@@ -88,7 +88,7 @@ Xcreeptor is a Raylib-based encryption and decryption application designed to pr
 
 4. Run the application:
     ```bash
-    ./bin/AlpenliCloud.exe
+    ./bin/xreeptor.exe
     ```
 
 ## Usage
@@ -97,7 +97,7 @@ Xcreeptor is a Raylib-based encryption and decryption application designed to pr
 
 1. Launch the application:
     ```bash
-    ./bin/AlpenliCloud.exe
+    ./bin/xreeptor.exe
     ```
 2. Create an account if this is your first time, or log in with your existing PIN.
 3. Use the sidebar navigation to access different features:
@@ -124,7 +124,7 @@ xcreeptor/
 │   ├── key.dat           # Encryption key storage
 │   └── resource.rc       # Windows resource file
 ├── bin/                   # Output directory for the compiled binary
-│   └── AlpenliCloud.exe  # Main executable
+│   └── xreeptor.exe  # Main executable
 ├── build/                 # Build directory for object files
 ├── include/               # Header files
 │   ├── envmgr.hpp        # Environment manager
