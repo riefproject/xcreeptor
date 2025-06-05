@@ -1,6 +1,6 @@
 # Xcreeptor
 
-Xcreeptor is a Qt-based encryption and decryption application designed to provide a secure and user-friendly interface for managing sensitive data. It combines multiple encryption layers, including substitution ciphers and AES encryption, to ensure robust data protection. The application also includes features for account management, key regeneration, and password generation.
+Xcreeptor is a Raylib-based encryption and decryption application designed to provide a secure and user-friendly interface for managing sensitive data. It combines multiple encryption layers, including substitution ciphers and AES encryption, to ensure robust data protection. The application also includes features for account management, key regeneration, and password generation.
 
 ## Table of Contents
 
@@ -53,30 +53,31 @@ Xcreeptor is a Qt-based encryption and decryption application designed to provid
 
 ### 5. **Cross-Platform GUI**
 
--   Built using **Qt Framework**, providing a modern and responsive user interface.
+-   Built using **Raylib** with **Raygui**, providing a lightweight and responsive user interface.
 -   Includes input/output text areas, buttons for encryption/decryption, and password generation tools.
+-   Features a modern sidebar navigation with home, encrypt, decrypt, and password generation pages.
 
 ## Installation
 
 ### Prerequisites
 
-1. **Qt Framework**: Ensure you have Qt5 installed on your system.
+1. **Raylib**: Ensure you have Raylib installed on your system.
 2. **OpenSSL**: Required for AES encryption and decryption.
 3. **C++ Compiler**: A C++17-compatible compiler (e.g., GCC, MSVC).
-4. **CMake or Make**: For building the project.
+4. **Make**: For building the project.
 
 ### Steps
 
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your/riedproject/xcreeptor.git
+    git clone https://github.com/riefproject/xcreeptor.git
     cd xcreeptor
     ```
 
 2. Install dependencies:
 
-    - Ensure `pkg-config` is installed for Qt5 detection.
+    - Install Raylib development libraries.
     - Install OpenSSL development libraries.
 
 3. Build the project:
@@ -87,7 +88,7 @@ Xcreeptor is a Qt-based encryption and decryption application designed to provid
 
 4. Run the application:
     ```bash
-    ./bin/decoder
+    ./bin/AlpenliCloud.exe
     ```
 
 ## Usage
@@ -96,38 +97,57 @@ Xcreeptor is a Qt-based encryption and decryption application designed to provid
 
 1. Launch the application:
     ```bash
-    ./bin/decoder
+    ./bin/AlpenliCloud.exe
     ```
-2. Log in or create an account.
-3. Use the interface to encrypt/decrypt text, generate passwords, or manage keys.
+2. Create an account if this is your first time, or log in with your existing PIN.
+3. Use the sidebar navigation to access different features:
+    - **Home**: Overview of available features
+    - **Encrypt**: Encrypt text using the layered encryption system
+    - **Decrypt**: Decrypt previously encrypted text
+    - **Generate Password**: Create secure random passwords
+    - **Regenerate Key**: Create a new encryption key (warning: invalidates old data)
 
 ### Key Features
 
 -   **Encrypt Text**: Enter text in the input area and click "Encrypt" to secure it.
 -   **Decrypt Text**: Paste encrypted text in the input area and click "Decrypt" to retrieve the original text.
 -   **Generate Password**: Specify the desired password length and click "Generate Password."
--   **Regenerate Key**: Click "Regenerate Key" to create a new substitution cipher key.
+-   **Regenerate Key**: Click "Regenerate Key" to create a new substitution cipher key with confirmation modal.
+-   **Copy to Clipboard**: Easily copy encrypted/decrypted results or generated passwords.
 
 ## Project Structure
 
 ```
 xcreeptor/
 ├── assets/                # Stores account and key files
+│   ├── account.dat        # User account data
+│   ├── key.dat           # Encryption key storage
+│   └── resource.rc       # Windows resource file
 ├── bin/                   # Output directory for the compiled binary
+│   └── AlpenliCloud.exe  # Main executable
 ├── build/                 # Build directory for object files
 ├── include/               # Header files
-│   ├── core/crypto/       # Encryption and decryption logic
-│   ├── core/utils/        # Utility functions
-│   └── ui/                # UI-related headers
+│   ├── envmgr.hpp        # Environment manager
+│   ├── core/crypto/      # Encryption and decryption logic
+│   ├── core/utils/       # Utility functions
+│   └── ui/               # UI-related headers
+│       └── mainWindow.hpp # Main window class definition
+├── lib/                   # External libraries
+│   └── raylib/           # Raylib library files
 ├── src/                   # Source files
-│   ├── core/crypto/       # Encryption and decryption implementations
-│   ├── core/utils/        # Utility implementations
-│   └── ui/                # UI logic
-├── .vscode/               # VSCode configuration files
-├── .github/               # GitHub-specific files
-├── LICENSE                # License file
-├── Makefile               # Build instructions
-└── README.md              # Project documentation
+│   ├── envmgr.cpp        # Environment manager implementation
+│   ├── main.cpp          # Application entry point
+│   ├── core/crypto/      # Encryption and decryption implementations
+│   ├── core/utils/       # Utility implementations
+│   └── ui/               # UI logic
+│       └── mainWindow.cpp # Main window implementation
+├── tests/                 # Test files
+├── .vscode/              # VSCode configuration files
+├── .github/              # GitHub-specific files
+├── build.sh              # Build script
+├── LICENSE               # License file
+├── Makefile              # Build instructions
+└── README.md             # Project documentation
 ```
 
 ## Development
@@ -137,11 +157,13 @@ xcreeptor/
 1. Modify the `Makefile` if necessary to match your system's configuration.
 2. Run `make` to build the project.
 3. Use `make clean` to remove build artifacts.
+4. Use the provided `build.sh` script for alternative building.
 
 ### Debugging
 
--   Enable debug logs by reviewing the `std::cout` statements in the source files.
--   Use a debugger like `gdb` or Qt Creator's built-in debugger for step-by-step execution.
+-   Enable debug logs by reviewing the debug statements in the source files.
+-   Use a debugger like `gdb` or Visual Studio Code's built-in debugger for step-by-step execution.
+-   The application runs at 60 FPS and includes window management through Raylib.
 
 ## Contributing
 
@@ -168,7 +190,8 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Acknowledgments
 
--   **Qt Framework**: For providing a robust GUI framework.
+-   **Raylib**: For providing a simple and efficient game development framework.
+-   **Raygui**: For the immediate mode GUI system.
 -   **OpenSSL**: For cryptographic functions.
 -   **C++ Community**: For libraries and tools that made this project possible.
 
