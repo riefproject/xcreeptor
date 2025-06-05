@@ -1,5 +1,6 @@
 #define RAYGUI_IMPLEMENTATION
 #include "mainWindow.hpp"
+#include "envmgr.hpp"
 #include "encrypt.hpp"
 #include "decrypt.hpp"
 #include "keyManager.hpp"
@@ -25,9 +26,10 @@ MainWindow::MainWindow()
     EnvManager::load();
 
     // Then get the values
-    keyPassword = EnvManager::get("XCREEPTOR_PASS_KEY", "defaultkey123");
-    aesKey = EnvManager::get("XCREEPTOR_AES_KEY", "thisisaverysecurekey1234567890");
-    iv = EnvManager::get("XCREEPTOR_VI_KEY", "thisisinitialvect");
+    // You should set  these environment variables in your .env file or system environment
+    keyPassword = EnvManager::get("XCREEPTOR_PASS_KEY");
+    aesKey = EnvManager::get("XCREEPTOR_AES_KEY");
+    iv = EnvManager::get("XCREEPTOR_VI_KEY");
 
     // Clear text buffers
     memset(inputBuffer, 0, sizeof(inputBuffer));
